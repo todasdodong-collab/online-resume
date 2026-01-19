@@ -2,125 +2,174 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>King Apostol | Futuristic Resume</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Name | Futuristic Resume</title>
 
-  <link rel="stylesheet" href="style.css" />
+  <!-- SEO / ATS -->
+  <meta name="description" content="Full Stack MERN Developer Resume">
+  <meta name="keywords" content="MERN, React, Node.js, MongoDB, Express, Full Stack Developer">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Your Name",
+    "jobTitle": "Full Stack MERN Developer",
+    "url": "https://yourusername.github.io",
+    "sameAs": ["https://github.com/yourusername"]
+  }
+  </script>
 </head>
 
 <body>
-  <div class="grid-bg"></div>
 
-  <main class="container">
-    <!-- HEADER -->
-    <header class="hero">
-      <div class="hero-text">
-        <h1>Your Name</h1>
-        <h2>Full Stack Developer</h2>
-        <p class="tagline">
-          Building scalable systems, modern interfaces, and intelligent web applications.
+<!-- TERMINAL BOOT -->
+<div id="terminal">
+  <pre id="terminal-text"></pre>
+</div>
+
+<!-- GRID BACKGROUND -->
+<div class="grid-bg"></div>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <button onclick="toggleTheme()">Theme</button>
+  <button onclick="downloadPDF()">PDF</button>
+  <button onclick="downloadJSON()">JSON</button>
+</div>
+
+<!-- COMMAND PALETTE -->
+<div id="palette" class="palette hidden">
+  <input placeholder="Go to section…" />
+  <ul>
+    <li data-target="profile">Profile</li>
+    <li data-target="skills">Skills</li>
+    <li data-target="experience">Experience</li>
+    <li data-target="projects">Projects</li>
+  </ul>
+</div>
+
+<main class="container hidden">
+
+  <!-- HERO -->
+  <header class="hero reveal">
+    <div>
+      <h1>Your Name</h1>
+      <h2>Full Stack MERN Developer</h2>
+      <p class="tagline">
+        Designing scalable systems and modern web architectures.
+      </p>
+    </div>
+
+    <div class="meta">
+      <p>📍 Philippines</p>
+      <p>✉️ your@email.com</p>
+      <p>🌐 github.com/yourusername</p>
+    </div>
+  </header>
+
+  <!-- PROFILE -->
+  <section id="profile" class="card reveal">
+    <h3>Profile</h3>
+    <p>
+      Full Stack Developer specializing in MongoDB, Express, React, and Node.js.
+      Experienced in authentication systems, REST APIs, and scalable web platforms.
+    </p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="card reveal">
+    <h3>Skills</h3>
+
+    <div class="skill">
+      <label>React</label>
+      <div class="bar"><span style="width:90%"></span></div>
+    </div>
+
+    <div class="skill">
+      <label>Node.js</label>
+      <div class="bar"><span style="width:85%"></span></div>
+    </div>
+
+    <div class="skill">
+      <label>MongoDB</label>
+      <div class="bar"><span style="width:80%"></span></div>
+    </div>
+
+    <div class="skill">
+      <label>Express</label>
+      <div class="bar"><span style="width:80%"></span></div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="card reveal">
+    <h3>Experience</h3>
+
+    <div class="timeline">
+      <div>
+        <span>2024 – Present</span>
+        <h4>Web Developer</h4>
+        <p>
+          Built full-stack MERN applications, authentication flows,
+          dashboards, and component systems.
         </p>
       </div>
 
-      <div class="hero-meta">
-        <p>📍 Philippines</p>
-        <p>✉️ your.email@example.com</p>
-        <p>🌐 github.com/yourusername</p>
+      <div>
+        <span>2023 – 2024</span>
+        <h4>Junior Developer</h4>
+        <p>
+          Developed REST APIs, frontend layouts, and internal tools.
+        </p>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <!-- ABOUT -->
-    <section class="card">
-      <h3>Profile</h3>
-      <p>
-        Results-driven developer specializing in modern web architectures.
-        Experienced in designing clean APIs, responsive user interfaces,
-        and production-ready systems with a strong focus on maintainability
-        and performance.
-      </p>
-    </section>
+  <!-- PROJECTS -->
+  <section id="projects" class="card reveal">
+    <h3>Projects</h3>
 
-    <!-- SKILLS -->
-    <section class="card">
-      <h3>Core Technologies</h3>
+    <ul>
+      <li>
+        <strong>Facial Recognition Attendance System</strong>
+        <p>MERN-based system with enrollment and attendance tracking.</p>
+      </li>
 
-      <div class="skills-grid">
-        <span>JavaScript (ES6+)</span>
-        <span>React</span>
-        <span>Node.js</span>
-        <span>Express</span>
-        <span>MongoDB</span>
-        <span>REST APIs</span>
-        <span>Tailwind CSS</span>
-        <span>Git & GitHub</span>
-      </div>
-    </section>
+      <li>
+        <strong>Reservation Management System</strong>
+        <p>Role-based booking system with admin dashboard.</p>
+      </li>
+    </ul>
 
-    <!-- EXPERIENCE -->
-    <section class="card">
-      <h3>Experience</h3>
+    <img
+      class="github"
+      src="https://github-readme-stats.vercel.app/api?username=yourusername&show_icons=true&theme=transparent"
+    />
+  </section>
 
-      <div class="timeline">
-        <div class="item">
-          <span class="year">2024 – Present</span>
-          <div>
-            <h4>Web Developer</h4>
-            <p>
-              Designed and implemented full-stack applications using MERN.
-              Developed reusable components, authentication systems, and
-              optimized backend performance.
-            </p>
-          </div>
-        </div>
+  <footer>
+    © <span id="year"></span> Your Name
+  </footer>
 
-        <div class="item">
-          <span class="year">2023 – 2024</span>
-          <div>
-            <h4>Junior Developer</h4>
-            <p>
-              Assisted in building internal tools, REST APIs, and UI components.
-              Collaborated closely with designers and backend engineers.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+</main>
 
-    <!-- PROJECTS -->
-    <section class="card">
-      <h3>Projects</h3>
+<!-- ATS KEYWORDS -->
+<div class="ats">
+  MERN Stack, React, Node.js, MongoDB, Express, REST API,
+  Full Stack Developer, JavaScript, Git, GitHub
+</div>
 
-      <ul class="projects">
-        <li>
-          <strong>Facial Recognition Attendance System</strong>
-          <p>
-            Web-based system using React, Node.js, and MongoDB.
-            Includes user enrollment, authentication, and attendance tracking.
-          </p>
-        </li>
-
-        <li>
-          <strong>Reservation Management Platform</strong>
-          <p>
-            Implemented role-based access, booking flows, and admin dashboards.
-          </p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <p>
-        © <span id="year"></span> Your Name · Built for GitHub Pages
-      </p>
-    </footer>
-  </main>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<script src="script.js"></script>
 </body>
 </html>
+

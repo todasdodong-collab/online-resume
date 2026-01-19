@@ -1,148 +1,168 @@
 :root {
   --bg: #05070d;
-  --card: rgba(18, 22, 38, 0.85);
+  --card: rgba(20,25,45,.9);
   --primary: #00f6ff;
   --secondary: #7c8cff;
-  --text: #e6e8f2;
+  --text: #e8ebff;
   --muted: #9aa4c7;
-  --border: rgba(0, 246, 255, 0.2);
+  --border: rgba(0,246,255,.25);
 }
 
-* {
-  box-sizing: border-box;
+.light {
+  --bg: #f4f6ff;
+  --card: #ffffff;
+  --text: #111;
+  --muted: #444;
+  --border: rgba(0,0,0,.1);
 }
+
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
   font-family: Inter, sans-serif;
   background: var(--bg);
   color: var(--text);
-  overflow-x: hidden;
 }
 
-/* GRID BACKGROUND */
+.hidden { display: none; }
+
 .grid-bg {
   position: fixed;
   inset: 0;
   background:
-    linear-gradient(rgba(0, 246, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 246, 255, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(0,246,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,246,255,.05) 1px, transparent 1px);
   background-size: 40px 40px;
-  mask-image: radial-gradient(circle at top, black 30%, transparent 70%);
   z-index: -1;
+}
+
+.controls {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+}
+
+.controls button {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 12px;
+  cursor: pointer;
 }
 
 .container {
   max-width: 1000px;
   margin: auto;
-  padding: 48px 24px;
+  padding: 80px 24px;
 }
 
-/* HERO */
 .hero {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 32px;
-  margin-bottom: 48px;
 }
 
 .hero h1 {
-  font-family: Orbitron, sans-serif;
+  font-family: Orbitron;
   font-size: 3rem;
-  margin: 0;
   color: var(--primary);
 }
 
-.hero h2 {
-  margin: 8px 0;
-  font-weight: 400;
-  color: var(--secondary);
-}
-
-.tagline {
-  color: var(--muted);
-  max-width: 600px;
-}
-
-.hero-meta {
-  text-align: right;
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-
-/* CARD */
 .card {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 28px;
-  margin-bottom: 32px;
-  backdrop-filter: blur(10px);
+  margin: 32px 0;
 }
 
-.card h3 {
-  margin-top: 0;
-  font-family: Orbitron, sans-serif;
-  color: var(--primary);
-}
-
-/* SKILLS */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 12px;
-}
-
-.skills-grid span {
-  padding: 10px 14px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  text-align: center;
-  background: rgba(0, 246, 255, 0.05);
-}
-
-/* TIMELINE */
-.timeline .item {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-.year {
-  color: var(--secondary);
-  font-weight: 600;
-}
-
-/* PROJECTS */
-.projects {
-  list-style: none;
-  padding: 0;
-}
-
-.projects li {
+.skill {
   margin-bottom: 16px;
 }
 
-.projects strong {
+.bar {
+  height: 6px;
+  background: rgba(255,255,255,.15);
+  border-radius: 6px;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg,var(--primary),var(--secondary));
+}
+
+.timeline span {
   color: var(--secondary);
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  color: var(--muted);
-  margin-top: 48px;
-  font-size: 0.85rem;
+.github {
+  max-width: 100%;
+  margin-top: 16px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
+footer {
+  text-align: center;
+  margin-top: 48px;
+  color: var(--muted);
+}
 
-  .hero-meta {
-    text-align: left;
-  }
+/* Terminal */
+#terminal {
+  position: fixed;
+  inset: 0;
+  background: black;
+  color: #00ff9c;
+  font-family: monospace;
+  padding: 24px;
+}
+
+/* Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: .8s ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: none;
+}
+
+/* Command palette */
+.palette {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.palette input {
+  width: 300px;
+  padding: 12px;
+  background: black;
+  color: white;
+  border: 1px solid var(--border);
+}
+
+.ats {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+}
+
+/* Print */
+@media print {
+  .grid-bg, .controls, #terminal { display: none; }
+  body { background: white; color: black; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
 }
